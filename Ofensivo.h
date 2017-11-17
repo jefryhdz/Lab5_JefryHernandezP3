@@ -12,7 +12,7 @@ class Ofensivo : Poder{
 		double rango;
 		double fuerza;
 	public:
-		Ofensivo(double,double);
+		Ofensivo(string,double,double,double);
 		Ofensivo();
 		double getRango();
 		void setRango(double);

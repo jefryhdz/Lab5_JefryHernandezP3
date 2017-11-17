@@ -1,6 +1,6 @@
 #include "Invocacion.h"
 
-Invocacion::Invocacion(string Petname,string Especie,string Habilidad,string Tipomascota){
+Invocacion::Invocacion(string nombre,double nivel,string Petname,string Especie,string Habilidad,string Tipomascota):Poder(nombre,nivel){
 	this->Petname=Petname;
 	this->Especie=Especie;
 	this->Habilidad=Habilidad;
@@ -26,10 +26,10 @@ void Invocacion::setHabilidad(string Habilidad){
 string Invocacion::getHabilidad(){
    return Habilidad;
 }
-void Persona::setTipomascota(string Tipomascota){
+void Invocacion::setTipomascota(string Tipomascota){
    this-> Tipomascota=Tipomascota;
 }
-string Persona::getTipomascota(){
+string Invocacion::getTipomascota(){
    return Tipomascota;
 }
 

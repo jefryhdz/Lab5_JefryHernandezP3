@@ -5,7 +5,7 @@ Persona::Persona(int edad,string nombre,string nacion,string sexo){
 	this->nombre=nombre;
 	this->nacion=nacion;
 	this->sexo=sexo;
-	t
+	
 }
 Persona::Persona(){
 

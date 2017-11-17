@@ -12,7 +12,7 @@ class Defensivo : Poder{
 		double Resistencia;
 		double Duracion;
 	public:
-		Defensivo(double,double);
+		Defensivo(string,double,double,double);
 		Defensivo();
 		double getResistencia();
 		void setResistencia(double);

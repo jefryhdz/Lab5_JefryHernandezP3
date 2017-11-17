@@ -11,7 +11,7 @@ class Curativo : Poder{
 	protected:
 		string Tipo;
 	public:
-		Curativo(string);
+		Curativo(string,double,string);
 		Curativo();
 		string getTipo();
 		void setTipo(string);

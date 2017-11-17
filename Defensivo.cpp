@@ -1,6 +1,6 @@
 #include "Defensivo.h"
 
-Defensivo::Defensivo(double Resistencia,double Duracion){
+Defensivo::Defensivo(string nombre,double nivel,double Resistencia,double Duracion):Poder(nombre,nivel){
 	this->Resistencia=Resistencia;
 	this->Duracion=Duracion;
 }
