@@ -8,7 +8,7 @@ using namespace std;
 
 #ifndef AIR_H
 #define AIR_H
-class air : Persona{
+class air :public Persona{
 	protected:
 		int Cabello;
 		string Color;

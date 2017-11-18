@@ -7,7 +7,7 @@ using namespace std;
 
 #ifndef DEFENSIVO_H
 #define DEFENSIVO_H
-class Defensivo : Poder{
+class Defensivo :public Poder{
 	protected:
 		double Resistencia;
 		double Duracion;

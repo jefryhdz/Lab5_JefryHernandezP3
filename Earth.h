@@ -14,7 +14,7 @@ class Earth : public Persona{
 		double Graduacion;
 		Poder* poder;
 	public:
-		Earth(int,string,string,string,double,double);
+		Earth(int,string,string,string,double,double,Poder*);
 		Earth();
 		//Persona(int,string,string,string);
 		double getDurabilidad();
@@ -22,6 +22,9 @@ class Earth : public Persona{
 
 		double getGraduacion();
 		void setGraduacion(double);
+
+		Poder* getPoder();
+		void setPoder(Poder*);
 
 };
 #endif

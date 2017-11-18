@@ -7,7 +7,7 @@ using namespace std;
 
 #ifndef CURATIVO_H
 #define CURATIVO_H
-class Curativo : Poder{
+class Curativo :public Poder{
 	protected:
 		string Tipo;
 	public:
