@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include <>
 #include "Persona.h"
 #include "air.h"
 #include "Poder.h"
@@ -109,36 +108,7 @@ int main(){
 				/* code */
 			}if (menu==3)
 			{
-				ofstrean archivo("archivo.txt",ios::out);
-				Persona* person;
-				archivo<<"__________________"<<endl;
-				for (int i = 0; i < lista.size(); ++i)
-				{
-					person=lista.at(i);
-					if (dynamic_cast<Water*>(person)!=NULL)
-					{
-						Water*  awa= dynamic_cast<Water*>(person);
-						archivo<<awa->getNombre()<<"nombre"<<awa->getEdad<<"Edad"<<awa->getSexo()<<"Sexo"<<awa->getNacion()<<"Nacion"<<awa->getTribu()<<"Tribu"<<awa->getArma()<<"Arma"<<endl;
-					}
-				}archivo<<"__________________"<<endl;
-				for (int i = 0; i < lista.size(); ++i)
-				{
-					person=lista.at(i);
-					if (dynamic_cast<air*>(person)!=NULL)
-					{
-						air*  awa= dynamic_cast<air*>(person);
-						archivo<<awa->getNombre()<<"nombre"<<awa->getEdad<<"Edad"<<awa->getSexo()<<"Sexo"<<awa->getNacion()<<"Nacion"<<awa->getCabello()<<"Cabello"<<awa->getColor()<<"Color"<<endl;
-					}
-				}archivo<<"__________________"<<endl;
-				for (int i = 0; i < lista.size(); ++i)
-				{
-					person=lista.at(i);
-					if (dynamic_cast<Fire*>(person)!=NULL)
-					{
-						Fire*  awa= dynamic_cast<air*>(person);
-						archivo<<awa->getNombre()<<"nombre"<<awa->getEdad<<"Edad"<<awa->getSexo()<<"Sexo"<<awa->getNacion()<<"Nacion"<<awa->getCicatrices()<<"Cicatrices"<<awa->getVictoria()<<"Victoria"<<endl;
-					}
-				}
+				
 			}
 		}			
      
