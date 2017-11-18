@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
+#include <>
 #include "Persona.h"
 #include "air.h"
 #include "Poder.h"
@@ -22,80 +24,123 @@ int main(){
 	int cicatriz,victoria;
 	Poder* p= new Poder();	
      while(ans=="s"){
-     	int resp=-1;
-     	while(resp<0||resp>5){
-	     	cout<<"Creacion de Personas"<<endl;
-	     	cout<<"1. Air Bender"<<endl;
-	     	cout<<"2. Fire Bender"<<endl;
-	     	cout<<"3. Water Bender"<<endl;
-	     	cout<<"4. Earth Bender"<<endl;
-	     	cout<<"5. Non Bender"<<endl;
-     	cin>>resp;
-		}string nombre,nacion,sexo,color;			
-		int edad,pelo;			
-		cout<<"Ingrese el nombre de la persona"<<endl;
-		cin>>nombre;
-		cout<<"Ingrese la nacion de la persona"<<endl;
-		cin>>nacion;
-		cout<<"Ingrese el sexo de la persona"<<endl;
-		cin>>sexo;
-		cout<<"Ingrese la edad de la persona"<<endl;
-		cin>>edad;
-		if (resp==1)
-		{				
-			cout<<"Ingrese la cantidad de cabello que tiene el air bender"<<endl;
-			cin>>pelo;
-			cout<<"Ingrese el color de las flechas"<<endl;
-			cin>>color;
-			p =poder();
-			Persona* aire = new air(edad,nombre,nacion,sexo,pelo,color,p);
-			lista.push_back(aire);			
-		}if (resp==2)
-		{
-			cout<<"Ingrese el numero de cicatrices"<<endl;
-			cin>>cicatriz;
-			cout<<"Ingrese el numero de victorias"<<endl;
-			cin>>victoria;
-			p =poder();
-			Persona* fuego = new Fire(edad,nombre,nacion,sexo,cicatriz,p,victoria);
-			lista.push_back(fuego);
-		}if (resp==3){
-			string tribu,arma;
-			cout<<"Ingrese la tribu"<<endl;
-			cin>>tribu;
-			cout<<"Ingrese el arma"<<endl;
-			cin>>arma;
-			p= poder();
-			Persona* agua = new Water(edad,nombre,nacion,sexo,tribu,arma,p);
-			lista.push_back(agua);
-		}if (resp==4)
-		{
-			double durabilidad;
-			double graduacion=21;
-			cout<<"Ingrese la durabilidad"<<endl;
-			cin>>durabilidad;			
-			while(graduacion<21&&graduacion<0){
-				cout<<"Ingrese la graduacion"<<endl;
-				cin>>graduacion;				
+     	int resp=-1;     
+     		int menu=-1;
+     		while(menu<1&&menu>4){     			
+     			cout<<"1. Agregar´persona"<<endl;
+     			cout<<"2. Eliminar"<<endl;
+     			cout<<"3. Listar"<<endl;
+     			cin>>menu;
+     		}if (menu==1)
+ 			{     			  
+     			while(resp<1||resp>5){   		
+			     	cout<<"Creacion de Personas"<<endl;
+			     	cout<<"1. Air Bender"<<endl;
+			     	cout<<"2. Fire Bender"<<endl;
+			     	cout<<"3. Water Bender"<<endl;
+			     	cout<<"4. Earth Bender"<<endl;
+			     	cout<<"5. Non Bender"<<endl;
+	     			cin>>resp;
+				}
+			
+				string nombre,nacion,sexo,color;			
+				int edad,pelo;			
+				cout<<"Ingrese el nombre de la persona"<<endl;
+				cin>>nombre;
+				cout<<"Ingrese la nacion de la persona"<<endl;
+				cin>>nacion;
+				cout<<"Ingrese el sexo de la persona"<<endl;
+				cin>>sexo;
+				cout<<"Ingrese la edad de la persona"<<endl;
+				cin>>edad;
+				if (resp==1)
+				{				
+					cout<<"Ingrese la cantidad de cabello que tiene el air bender"<<endl;
+					cin>>pelo;
+					cout<<"Ingrese el color de las flechas"<<endl;
+					cin>>color;
+					p =poder();
+					Persona* aire = new air(edad,nombre,nacion,sexo,pelo,color,p);
+					lista.push_back(aire);			
+				}if (resp==2)
+				{
+					cout<<"Ingrese el numero de cicatrices"<<endl;
+					cin>>cicatriz;
+					cout<<"Ingrese el numero de victorias"<<endl;
+					cin>>victoria;
+					p =poder();
+					Persona* fuego = new Fire(edad,nombre,nacion,sexo,cicatriz,p,victoria);
+					lista.push_back(fuego);
+				}if (resp==3){
+					string tribu,arma;
+					cout<<"Ingrese la tribu"<<endl;
+					cin>>tribu;
+					cout<<"Ingrese el arma"<<endl;
+					cin>>arma;
+					p= poder();
+					Persona* agua = new Water(edad,nombre,nacion,sexo,tribu,arma,p);
+					lista.push_back(agua);
+				}if (resp==4)
+				{
+				double durabilidad;
+					double graduacion=21;
+					cout<<"Ingrese la durabilidad"<<endl;
+					cin>>durabilidad;			
+					while(graduacion<21&&graduacion<0){
+						cout<<"Ingrese la graduacion"<<endl;
+						cin>>graduacion;				
+					}
+					p = poder();
+					Persona* tierra= new Earth(edad,nombre,nacion,sexo,durabilidad,graduacion,p);
+					lista.push_back(tierra);
+				}if (resp==5)
+				{
+					double fuerza;
+					double velocidad;
+					cout<<"Ingrese la fuerza"<<endl;
+					cin>>fuerza;
+					cout<<"Ingrese la velocidad"<<endl;
+					cin>>velocidad;
+					Persona* nomaestro= new nonbender(edad,nombre,nacion,sexo,fuerza,velocidad);
+					lista.push_back(nomaestro);
+				}
+			}if (menu==2)
+			{
+				/* code */
+			}if (menu==3)
+			{
+				ofstrean archivo("archivo.txt",ios::out);
+				Persona* person;
+				archivo<<"__________________"<<endl;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					person=lista.at(i);
+					if (dynamic_cast<Water*>(person)!=NULL)
+					{
+						Water*  awa= dynamic_cast<Water*>(person);
+						archivo<<awa->getNombre()<<"nombre"<<awa->getEdad<<"Edad"<<awa->getSexo()<<"Sexo"<<awa->getNacion()<<"Nacion"<<awa->getTribu()<<"Tribu"<<awa->getArma()<<"Arma"<<endl;
+					}
+				}archivo<<"__________________"<<endl;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					person=lista.at(i);
+					if (dynamic_cast<air*>(person)!=NULL)
+					{
+						air*  awa= dynamic_cast<air*>(person);
+						archivo<<awa->getNombre()<<"nombre"<<awa->getEdad<<"Edad"<<awa->getSexo()<<"Sexo"<<awa->getNacion()<<"Nacion"<<awa->getCabello()<<"Cabello"<<awa->getColor()<<"Color"<<endl;
+					}
+				}archivo<<"__________________"<<endl;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					person=lista.at(i);
+					if (dynamic_cast<Fire*>(person)!=NULL)
+					{
+						Fire*  awa= dynamic_cast<air*>(person);
+						archivo<<awa->getNombre()<<"nombre"<<awa->getEdad<<"Edad"<<awa->getSexo()<<"Sexo"<<awa->getNacion()<<"Nacion"<<awa->getCicatrices()<<"Cicatrices"<<awa->getVictoria()<<"Victoria"<<endl;
+					}
+				}
 			}
-			p = poder();
-			Persona* tierra= new Earth(edad,nombre,nacion,sexo,durabilidad,graduacion,p);
-			lista.push_back(tierra);
-		}if (resp==5)
-		{
-			double fuerza;
-			double velocidad;
-			cout<<"Ingrese la fuerza"<<endl;
-			cin>>fuerza;
-			cout<<"Ingrese la velocidad"<<endl;
-			cin>>velocidad;
-			Persona* nomaestro= new nonbender(edad,nombre,nacion,sexo,fuerza,velocidad);
-			lista.push_back(nomaestro);
-		}
-	
-		
-
-     }
+		}			
      
      return 0;
 }
